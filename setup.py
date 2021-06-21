@@ -16,7 +16,8 @@
 #       names of its contributors may be used to endorse or promote products
 #       derived from this software without specific prior written permission.
 #
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" \
+# AND
 # ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 # WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
 # DISCLAIMED. IN NO EVENT SHALL POTENTIAL VENTURES LTD BE LIABLE FOR ANY
@@ -29,6 +30,8 @@
 ###############################################################################
 
 import sys
+from cocotb_build_libs import get_ext, build_ext
+
 if sys.version_info[:2] < (3, 6):
     msg = [
         "This version of cocotb requires at least Python 3.6,",
@@ -48,26 +51,18 @@ if sys.version_info[:2] < (3, 6):
     raise SystemExit("\n".join(msg))
 
 
-
-
-
-
-
-
-
-
-
 import logging
 from setuptools import setup
 from setuptools import find_packages
 from os import path, walk
 from io import StringIO
 
-# Note: cocotb is not installed properly yet and is missing dependencies and binaries
-# We can still import other files next to setup.py, as long as they're in MANIFEST.in
+# Note: cocotb is not installed properly yet and is missing dependencies \
+# and binaries
+# We can still import other files next to setup.py, as long as \
+# they're in MANIFEST.in
 # The below line is necessary for PEP517 support
 sys.path.append(path.dirname(__file__))
-from cocotb_build_libs import get_ext, build_ext
 
 
 def read_file(fname):
@@ -98,7 +93,8 @@ setup(
     name='cocotb',
     cmdclass={'build_ext': build_ext},
     version=__version__,  # noqa: F821
-    description='cocotb is a coroutine based cosimulation library for writing VHDL and Verilog testbenches in Python.',
+    description='cocotb is a coroutine based cosimulation library \
+        for writing VHDL and Verilog testbenches in Python.',
     url='https://docs.cocotb.org',
     license='BSD',
     long_description=read_file('README.md'),
@@ -131,7 +127,8 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "License :: OSI Approved :: BSD License",
-        "Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)",
+        "Topic :: Scientific/Engineering :: Electronic Design \
+            Automation (EDA)",
     ],
 
     # these appear in the sidebar on PyPI
